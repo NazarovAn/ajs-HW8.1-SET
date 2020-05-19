@@ -7,6 +7,9 @@ export default class Team {
   }
 
   add(char) {
+    if (this.members.has(char)) {
+      throw new Error('Такой персонаж уже в команде');
+    }
     this.members.add(char);
   }
 
@@ -27,8 +30,11 @@ const mage = new Character('mage');
 // team.add(bow);
 // team.add(sword);
 // team.add(mage);
+// console.log(team);
 
 // team.add(mage);
+// console.log(team);
+
 
 team.addAll(bow, sword, mage, bow, sword, mage);
 

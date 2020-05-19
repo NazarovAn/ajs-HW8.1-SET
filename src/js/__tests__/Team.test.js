@@ -20,6 +20,13 @@ test('Team add', () => {
   });
 });
 
+test('throw error', () => {
+  const char = new Character('Hollow');
+  const team = new Team('hollow');
+  team.add(char);
+  expect(() => team.add(char)).toThrow(new Error('Такой персонаж уже в команде'));
+});
+
 test('Team addAll', () => {
   const bow = new Character('Bow');
   const sword = new Character('Sword');
